@@ -1,7 +1,6 @@
 <?
 session_start();
 
-
 function cadastro_usuario()
 {
     global $conexao;
