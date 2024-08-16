@@ -3,11 +3,16 @@ session_start();
 
 function cadastro_usuario()
 {
+    return [
+        'status' => 200,
+        'message' => 'Usário criado com sucesso.',
+    ];
+
     global $conexao;
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = $_POST['senha'];
 
     $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE email = ? LIMIT 1");
     $stmt->execute([$email]);
@@ -32,11 +37,16 @@ function cadastro_usuario()
 
 
 function login()
-{
+{   
+    return [
+        'status' => 200,
+        'message' => 'Login realizado com sucesso.',
+    ];
+    
     global $conexao;
 
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = $_POST['senha'];
 
     $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE email = ? LIMIT 1");
     $stmt->execute([$email]);
@@ -50,7 +60,7 @@ function login()
         ];
     }
 
-    if (!password_verify($password, $user['senha'])) {
+    if (!$password == $user['senha']) {
         return [
             'status' => 404,
             'message' => 'Senha incorreta.',
@@ -98,13 +108,19 @@ function editar_veiculo()
 
 function insere_veiculo()
 {
+
+    return [
+        'status' => 200,
+        'message' => 'Veículo inserido com sucesso.',
+    ];
+    
     global $conexao;
-    $nome = $_POST['nome'];
+    $nome = $_POST['modelo'];
     $fabricante = $_POST['fabricante'];
     $tipo = $_POST['tipo'];
     $ano = $_POST['ano'];
 
-    $stmt = $conexao->prepare("INSERT INTO veiculos (nome, fabricante, tipo, ano) VALUES (?, ?, ?, ?)");
+    $stmt = $conexao->prepare("INSERT INTO veiculos (modelo, fabricante, tipo, ano) VALUES (?, ?, ?, ?)");
     $stmt->execute([$nome, $fabricante, $tipo, $ano]);
 
     return [

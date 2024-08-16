@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -13,41 +14,24 @@
             <div class="col-md-12 col-lg-4 px-sm-0 d-flex flex-column justify-content-center">
                 <div class="vh-75">
                     <div class="w-75 mx-auto">
-                        <img src="../src/carros.png">
+                        <img src="/src/carros.png">
                         <h1 class="form-label fw-bold fs-3 mb-4">Seja bem-vindo!</h1>
-                        <form class="auth-form" target="control_login" method="POST">
-                            <input type="hidden" name="acao" value="log in">
-                            <input type="hidden" name="admin" value="user">
+                        <form onsubmit="login(this)"> 
                             <div class="mb-3">
-                                <label class="form-label" for="split-login-email">Login</label>
-                                <input class="form-control" type="text" id="split-login-email"
-                                    placeholder="Digite aqui seu login *" name="login" autocomplete="off" required />
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Digite seu email" maxlength="250" required>
                             </div>
                             <div class="mb-3">
-                                <div class="form-group position-relative">
-                                    <div class="d-flex justify-content-between">
-                                        <label class="form-label" for="split-login-password">Senha</label>
-                                    </div>
-                                    <input class="form-control" id="split-login-password"
-                                        placeholder="Digite aqui sua senha *" autocomplete="off" name="senha"
-                                        type="password" required />
-                                    <div class="col-auto mb-3 mt-3">
-                                        <a class="fs--1" href="redefinicao_senha.php">Esqueci a senha</a>
-                                        <a class="fs--1" href="cadastrarConta.html">Cadastre-se</a>
-                                    </div>
-                                </div>
+                                <label for="senha" class="form-label">Senha</label>
+                                <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" maxlength="30" required>
                             </div>
-                            <div class="mb-3">
-                                <button class="btn btn-primary d-block w-100 mt-3" type="submit"
-                                    name="submit">Entrar</button>
-                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="col-md-8 d-lg-block">
-                <img src="../src/concessionaria-veiculos.jpg"
-                    class="img-fluid h-100 ">
+                <img src="/src/concessionaria-veiculos.jpg" class="img-fluid h-100 ">
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 <?
-include_once 'conexao.php';
+// include_once 'conexao.php';
 include_once 'function/funcoes.php';
 
 echo json_encode(match ($_POST['acao'] ?? $_GET['acao']) {
