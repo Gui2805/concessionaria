@@ -32,6 +32,30 @@ function cadastroVeiculo(formElement) {
 
 }
 
+function listagem_carros() {
+
+
+    const formData = new FormData();
+    formData.append('acao', 'lista_veiculos');
+    fetch('control.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data)
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+
+}
+
 
 function desativa_forms() {
     var forms = document.querySelectorAll('form');
